@@ -46,7 +46,7 @@ const guestbook = {
       }
 
       const context = {
-        entries: result.entries
+        entries: result.entries.sort((a,b)=>Date.parse(b.createdAt)-Date.parse(a.createdAt))
       }
       $('#entries').html(entriesTemplate(context));
     }).error(function(error) {
